@@ -1,6 +1,6 @@
 #include "Destination.hpp"
 
-Destination::Destination(): rating(0), avgRating(0.0), city(""), country(""), countVisitors(0){}
+Destination::Destination(): avgRating(0.0), city(""), country(""), countVisitors(0){}
 
 Destination::Destination(const double _avgRating, const int visitors, const String _city, const String _country)
 {
@@ -29,10 +29,6 @@ double Destination::avgRatingGetter() const
 	return avgRating / countVisitors;
 }
 
-int Destination::ratingGetter() const
-{
-	return rating;
-}
 
 int Destination::visitorsGetter() const
 {
@@ -79,3 +75,13 @@ std::ostream& operator<<(std::ostream& out, const Destination& dest)
 	return out;
 }
 
+std::istream& operator>>(std::istream& input, Destination& dest)
+{
+	std::cout << "Enter the city : ";
+	input >> dest.city;
+
+	std::cout << "Ener the coutry : ";
+	input >> dest.country;
+
+	return input;
+}
