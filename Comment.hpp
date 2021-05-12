@@ -4,21 +4,24 @@
 #include <fstream>
 #include <iostream>
 #include "String.hpp"
-//#include "User.hpp"
+#include "User.hpp"
 
 class Comment {
 
 private:
-	String from; // user
+	User from; 
 	String comment;
 
 public:
 	Comment();
-	Comment(const String, const String);
+	Comment(const String);
 
 	String commentGetter() const;
-	String fromUserGetter() const;
+	User fromUserGetter() const;
 	// TO DO : read & writes in files;
+
+	friend std::ostream& operator<<(std::ostream&, const Comment&);
+	friend std::istream& operator>>(std::istream&, Comment&);
 
 };
 #endif // !COMMENT_HPP
