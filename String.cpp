@@ -104,22 +104,6 @@ char& String::operator[](const int i) const
 
 }
 
-String String::encryption(String msg)
-{
-	for (size_t i = 0; i < msg.myLen(); i++) {
-		msg[i] = msg[i] + i;
-	}
-	return msg;
-}
-
-String String::decryption(String msg)
-{
-
-	for (size_t i = 0; i < msg.myLen(); i++) {
-		msg[i] = msg[i] - i;
-	}
-	return msg;
-}
 
 std::ostream& operator<<(std::ostream& out, const String& obj)
 {
