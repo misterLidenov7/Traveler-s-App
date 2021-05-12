@@ -14,9 +14,6 @@ private:
 	String email;
 	Vector<String> friends;
 
-	// TO DO : list of friends in vector
-	// и още нещо, 'дет не се сещам... за сега
-
 public:
 	User();
 	User(const String, const String, const String);
@@ -26,11 +23,25 @@ public:
 	String emailGetter() const;
 	Vector<String> friendsGetter() const;
 
+	void usernameSetter(const String);
+	void passwordSetter(const String);
+	void emailSetter(const String);
+
 	void addFriend(const String);
 	bool isValidPassword(const String) const;
-	
-	friend std::ostream& operator<<(std::ostream&, const User&);
-	void writeInFile(const User&); // this is just tester
+	bool isValidUsername(const String) const;
 
+	String encryption(String) const;
+	//This will be used for files, for that they can not be read by people
+
+	String decryption(String) const;
+	//This will be used for files, in case we need readable information
+
+	void writeInFile(const User&);
+	void readInFile(User&);
+
+	friend std::ostream& operator<<(std::ostream&, const User&);
+	friend std::istream& operator>>(std::istream&, User&);
+	//TO DO : Writing password in hidden form.
 };
 #endif // !USER_HPP
