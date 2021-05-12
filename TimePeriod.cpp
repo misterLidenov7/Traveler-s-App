@@ -150,6 +150,7 @@ std::ostream& operator<<(std::ostream& out, const TimePeriod& date){
 		exit(1);
 	}
 	
+
 	out << date.yearGetter() << "-";
 	if (date.monthGetter() < 10) {
 		out << "0";
@@ -162,4 +163,18 @@ std::ostream& operator<<(std::ostream& out, const TimePeriod& date){
 	out << date.dayGetter();
 
 	return out;
+}
+
+std::istream& operator>>(std::istream& input, TimePeriod& date)
+{
+	std::cout << "Enter year : ";
+	input >> date.year;
+
+	std::cout << "Enter month : ";
+	input >> date.month;
+
+	std::cout << "Enter day : ";
+	input >> date.day;
+
+	return input;
 }

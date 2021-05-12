@@ -28,8 +28,5 @@ public:
 	friend bool operator<=(const TimePeriod&, const TimePeriod&);
 
 	friend std::ostream& operator<<(std::ostream&, const TimePeriod&);
-
-	// TO DO : write in files
-	//оправи го на year-month-day , че ще ядеш бубата
-	//вкарай leapYear в isValid , че ще ядеш бубата
+	friend std::istream& operator>>(std::istream&, TimePeriod&);
 };
