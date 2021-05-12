@@ -99,7 +99,26 @@ bool String::operator<(const String& other)
 
 char& String::operator[](const int i) const
 {
+	
 	return string[i];
+
+}
+
+String String::encryption(String msg)
+{
+	for (size_t i = 0; i < msg.myLen(); i++) {
+		msg[i] = msg[i] + i;
+	}
+	return msg;
+}
+
+String String::decryption(String msg)
+{
+
+	for (size_t i = 0; i < msg.myLen(); i++) {
+		msg[i] = msg[i] - i;
+	}
+	return msg;
 }
 
 std::ostream& operator<<(std::ostream& out, const String& obj)
@@ -110,8 +129,8 @@ std::ostream& operator<<(std::ostream& out, const String& obj)
 
 std::istream& operator>>(std::istream& input, String& obj)
 {
-	char* buff = new char[47];
-	input >> buff;
+	char* buff = new char[100];
+	input.getline(buff, 100);
 	obj = String(buff);
 	delete[] buff;
 
