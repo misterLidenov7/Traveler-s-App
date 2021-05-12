@@ -8,7 +8,6 @@
 class Destination {
 
 private:
-	int rating;
 	double avgRating;
 	int countVisitors;
 	String city;
@@ -21,7 +20,6 @@ public:
 	String getCity() const;
 	String getCountry() const;
 	double avgRatingGetter() const;
-	int ratingGetter() const;
 	int visitorsGetter() const;
 	
 	void citySetter(const String);
@@ -31,6 +29,8 @@ public:
 	bool isValidRating(int);
 
 	friend std::ostream& operator<<(std::ostream&, const Destination&);
+	friend std::istream& operator>>(std::istream&, Destination&);
+
 };
 
 #endif // !DESTINATION_HPP
