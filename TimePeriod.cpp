@@ -1,12 +1,12 @@
 #include "TimePeriod.hpp"
 
-TimePeriod::TimePeriod(): day(1), month(1), year(1999) {}
+TimePeriod::TimePeriod():year(1999), month(1), day(1) {}
 
-TimePeriod::TimePeriod(const int day, const int month, const int year){
+TimePeriod::TimePeriod(const int year, const int month, const int day){
 
-	this->day = day;
-	this->month = month;
 	this->year = year;
+	this->month = month;
+	this->day = day;
 }
 
 const int TimePeriod::dayGetter() const{
@@ -41,7 +41,7 @@ bool TimePeriod::isValid(const int, const int, const int) const
 		}
 	}
 	if (month == 4 || month == 6 || month == 9 || month == 11) {
-		if (day < 1 || day > 31) {
+		if (day < 1 || day > 30) {
 			return false;
 		}
 	}

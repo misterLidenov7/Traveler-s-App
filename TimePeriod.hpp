@@ -12,7 +12,7 @@ private:
 public:
 
 	TimePeriod();	 // default 1999-01-01
-	TimePeriod(const int day, const int month, const int year);
+	TimePeriod(const int year, const int month, const int day);
 
 	const int dayGetter() const;
 	const int monthGetter() const;
